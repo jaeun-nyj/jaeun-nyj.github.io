@@ -1,7 +1,7 @@
 ---
 layout: post
-title: LLVM build and install
-subtitle: LLVM Core library chap1
+title: LLVM 빌드와 설치
+subtitle:『LLVM 코어 라이브러리』1장
 tags: [test]
 comments: true
 ---
