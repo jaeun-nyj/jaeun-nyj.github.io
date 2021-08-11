@@ -1,7 +1,7 @@
 ---
 layout: post
-title: External Projects
-subtitle: Clang extra tools, Compiler-RT, DragonEgg, LLVM test suite, LLDB, libc++
+title: Tool and Design
+subtitle: chapter 2
 comments: true
 ---
 
