@@ -2,9 +2,7 @@
 layout: post
 title: LLVM 빌드와 설치
 subtitle:『LLVM 코어 라이브러리』1장
-gh-repo: Masterwhiece/LLVM-study
-gh-badge: [star, fork, follow]
-tags: [LLVM]
+tags: [test]
 comments: true
 ---
 
