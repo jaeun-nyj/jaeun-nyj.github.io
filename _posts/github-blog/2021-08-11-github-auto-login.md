@@ -14,3 +14,5 @@ git push [github HTTPS 주소]
 
 ![github-auto-login](./images/github-auto-login.png)
 
+![github-auto-login](https://user-images.githubusercontent.com/88612547/129158588-fa4ba4c3-568e-430b-8455-3164f076165d.png)
+
