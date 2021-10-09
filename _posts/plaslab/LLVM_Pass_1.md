@@ -12,6 +12,12 @@
 - 프로그램에 대한 분석도 가능
 - 단, target code 생성은 불가능함
 
+#### LLVM Pass 시작하기  
+github에서 LLVM skeleton pass를 검색하여, clone해보자  
+` git clone https://github.com/manggoguy/llvm-pass-skeleton.git
+Build 방법 및 사용법은 https://github.com/manggoguy/llvm-pass-skeleton.git 링크 참조
+
+
 #### 소스코드
 - 다른 c++ 프로젝트처럼 하나의 Pass당 .h와 .cpp가 하나씩 구성
 - ModulePass를 상속받는 클래스 생성
