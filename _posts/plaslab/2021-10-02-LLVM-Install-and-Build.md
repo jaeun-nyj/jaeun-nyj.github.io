@@ -20,7 +20,7 @@
 빌드 디렉토리 만들기 ` mkdir 빌드디렉토리 `
 cmake로 LLVM을 빌드해줌
 - ` cmake "llvm source code root" `
-- llvm 빌드` cmake --build ` (시간 굉장히 오래 소요됨 약 3시간)
+- llvm 빌드 ``` cmake --build ``` (시간 굉장히 오래 소요됨 약 3시간)
 - 전역으로 llvm을 사용할 수 있게해줌 ` sudo cmake --build . --target install `
 - 전역으로 설치되었는지 확인 -> terminal에서 ` llvm-config ` 쳐보면 뜰 것임
 - 전역으로 설치하지 않고 사용시 install path를 지정하는 방법 ` cmake -DCMAKE_INSTALL_PREFIX="설치디렉토리" `로 설정 가능
