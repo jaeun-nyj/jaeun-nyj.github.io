@@ -27,7 +27,8 @@ cmake로 LLVM을 빌드해줌
 설치 모습  
 ![sudo cmake --build   --target install](https://user-images.githubusercontent.com/88612547/140647282-a1c8f34b-02eb-49b0-9192-92d2b8673b95.png)  
 llvm-config 눌러본 모습  
-![llvm-config](https://user-images.githubusercontent.com/88612547/140647337-3aee934d-0039-40b6-9f21-6910b6a8131e.png)  
+ ![llvm-config](https://user-images.githubusercontent.com/88612547/140647868-770bd150-db35-4c96-bcd3-3ba322442a0d.png)
+
 
 - 전역으로 설치하지 않고 사용시 install path를 지정하는 방법 ``` cmake -DCMAKE_INSTALL_PREFIX="설치디렉토리" ```로 설정 가능
 
