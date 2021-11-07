@@ -22,6 +22,12 @@ cmake로 LLVM을 빌드해줌
 - ``` cmake "llvm source code root" ```
 - llvm 빌드 ``` cmake --build ``` (시간 굉장히 오래 소요됨 약 3시간)
 - 전역으로 llvm을 사용할 수 있게해줌 ``` sudo cmake --build . --target install ```
-- 전역으로 설치되었는지 확인 -> terminal에서 ``` llvm-config ``` 쳐보면 뜰 것임
+- 전역으로 설치되었는지 확인 -> terminal에서 ``` llvm-config ``` 쳐보면 뜰 것임  
+
+설치 모습  
+![sudo cmake --build   --target install](https://user-images.githubusercontent.com/88612547/140647282-a1c8f34b-02eb-49b0-9192-92d2b8673b95.png)  
+llvm-config 눌러본 모습  
+![llvm-config](https://user-images.githubusercontent.com/88612547/140647337-3aee934d-0039-40b6-9f21-6910b6a8131e.png)  
+
 - 전역으로 설치하지 않고 사용시 install path를 지정하는 방법 ``` cmake -DCMAKE_INSTALL_PREFIX="설치디렉토리" ```로 설정 가능
 
