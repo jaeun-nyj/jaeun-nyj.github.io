@@ -16,6 +16,8 @@ void main()
 ```
 위 코드를 gcc로 컴파일하고, gdb로 디스어셈블 해보았다.  
 
+` gcc functionCall.c -o functionCall -m32 `
+
 #### disassemble main
 ``` bash
 (gdb) disassemble main
@@ -24,19 +26,25 @@ Dump of assembler code for function main:
    0x00001220 <+4>:     lea    0x4(%esp),%ecx
    0x00001224 <+8>:     and    $0xfffffff0,%esp
    0x00001227 <+11>:    pushl  -0x4(%ecx)
+   
    0x0000122a <+14>:    push   %ebp
    0x0000122b <+15>:    mov    %esp,%ebp
+   
    0x0000122d <+17>:    push   %ebx
    0x0000122e <+18>:    push   %ecx
    0x0000122f <+19>:    call   0x1269 <__x86.get_pc_thunk.ax>
    0x00001234 <+24>:    add    $0x2da0,%eax
+   
    0x00001239 <+29>:    sub    $0xc,%esp
+   
    0x0000123c <+32>:    lea    -0x1fba(%eax),%edx
    0x00001242 <+38>:    push   %edx
    0x00001243 <+39>:    mov    %eax,%ebx
    0x00001245 <+41>:    call   0x1080 <printf@plt>
    0x0000124a <+46>:    add    $0x10,%esp
+   
    0x0000124d <+49>:    sub    $0x4,%esp
+   
    0x00001250 <+52>:    push   $0x3
    0x00001252 <+54>:    push   $0x2
    0x00001254 <+56>:    push   $0x1
@@ -46,11 +54,36 @@ Dump of assembler code for function main:
    0x0000125f <+67>:    lea    -0x8(%ebp),%esp
    0x00001262 <+70>:    pop    %ecx
    0x00001263 <+71>:    pop    %ebx
+   
    0x00001264 <+72>:    pop    %ebp
    0x00001265 <+73>:    lea    -0x4(%ecx),%esp
    0x00001268 <+76>:    ret    
 End of assembler dump.
 ```
+
+#### disassemble function
+``` bash
+Dump of assembler code for function function:
+   0x000011ed <+0>:     endbr32 
+   0x000011f1 <+4>:     push   %ebp
+   0x000011f2 <+5>:     mov    %esp,%ebp
+   0x000011f4 <+7>:     push   %ebx
+   0x000011f5 <+8>:     sub    $0x4,%esp
+   0x000011f8 <+11>:    call   0x1269 <__x86.get_pc_thunk.ax>
+   0x000011fd <+16>:    add    $0x2dd7,%eax
+   0x00001202 <+21>:    sub    $0xc,%esp
+   0x00001205 <+24>:    lea    -0x1fcc(%eax),%edx
+   0x0000120b <+30>:    push   %edx
+   0x0000120c <+31>:    mov    %eax,%ebx
+   0x0000120e <+33>:    call   0x1090 <puts@plt>
+   0x00001213 <+38>:    add    $0x10,%esp
+   0x00001216 <+41>:    nop
+   0x00001217 <+42>:    mov    -0x4(%ebp),%ebx
+   0x0000121a <+45>:    leave  
+   0x0000121b <+46>:    ret    
+End of assembler dump.
+```
+
 
 1. ` 0x0000121c <+0>:     endbr32 `  
 CET의 indirect branch tracking이라는 jmp/call 이후 비정상적인 행동을 검사하는 보호기법이 있고,
@@ -72,7 +105,7 @@ AT&T syntax에서 0x4(%esp)는 %esp+0x4를 의미하므로, %ecx에 %esp+0x4를 
 6. ` 0x00001227 <+11>:    pushl  -0x4(%ecx) `
 7. ` 0x0000122a <+14>:    push   %ebp `
 8. ` 0x0000122b <+15>:    mov    %esp,%ebp `
-9. `  `
+9. `  `위 코드를 gcc로 컴파일하고, gdb로 디스어셈블 해보았다.
 10. ``
 9 ``
 11. ``
@@ -86,7 +119,15 @@ AT&T syntax에서 0x4(%esp)는 %esp+0x4를 의미하므로, %ecx에 %esp+0x4를 
 19. ``
 20. ``
 
+
+
+
 #### Reference
+- https://chp747.tistory.com/253 (non-classic prologue & epilogue)
+- https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D_SIMD_%ED%99%95%EC%9E%A5 (SSE instructions)
 - https://core-research-team.github.io/2020-05-01/memory (CET indirect branch tracking - endbr32)
+- https://dypar-study.tistory.com/84 (CET - endbr32)
 - https://stackoverflow.com/questions/3481207/what-does-lea-0x4esp-ecx-mean-in-att-syntax (AT&T syntax - 0x4(%esp))
-- 
+- https://stackoverflow.com/questions/25667205/what-exactly-does-putsplt-mean (puts@plt)
+
+
