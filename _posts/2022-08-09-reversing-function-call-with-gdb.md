@@ -129,5 +129,8 @@ AT&T syntax에서 0x4(%esp)는 %esp+0x4를 의미하므로, %ecx에 %esp+0x4를 
 - https://dypar-study.tistory.com/84 (CET - endbr32)
 - https://stackoverflow.com/questions/3481207/what-does-lea-0x4esp-ecx-mean-in-att-syntax (AT&T syntax - 0x4(%esp))
 - https://stackoverflow.com/questions/25667205/what-exactly-does-putsplt-mean (puts@plt)
+- https://bpsecblog.wordpress.com/2016/06/10/memory_protect_linux_4/ (<__x86.get_pc_thunk.ax>)
+- https://hackyboiz.github.io/2021/10/27/y00n_nms/linux-mitigation/ (PIE)
+- 
 
 
